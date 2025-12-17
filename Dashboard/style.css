@@ -1,0 +1,151 @@
+:root {
+  --bg: #131722;
+  --panel: #171c28;
+  --text: #f1f3f5;
+  --muted: #a6a7ad;
+  --stroke: rgba(255,255,255,0.25);
+  --strokeStrong: rgba(255,255,255,0.85);
+  --accent: rgba(255, 120, 120, 0.9);
+  --accent2: rgba(255, 210, 130, 0.9);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+h1 { margin: 0 0 8px 0; font-size: 18px; }
+.hint { color: var(--muted); font-size: 13px; line-height: 1.4; }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 12px;
+  padding: 12px;
+  height: calc(100vh - 74px);
+}
+
+#left {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+#graph {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#right {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 14px;
+  overflow: auto;
+}
+
+#right h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+#panel {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+.muted { color: var(--muted); }
+
+.buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.09);
+}
+
+/* Graph styles */
+.link {
+  stroke: rgba(255,255,255,0.32);
+  stroke-width: 1.8;
+  fill: none;
+  cursor: pointer;
+  transition: stroke 160ms ease, stroke-width 160ms ease, opacity 160ms ease;
+}
+
+.link.selected {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+
+.link.downstream {
+  stroke: var(--accent2);
+  stroke-width: 2.6;
+}
+
+.link.dimmed { opacity: 0.45; }
+
+.node circle {
+  stroke: rgba(255,255,255,0.35);
+  stroke-width: 1.2;
+  transition: r 200ms ease, opacity 160ms ease;
+  cursor: pointer;
+}
+
+.node text {
+  fill: rgba(255,255,255,0.85);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.node.selected circle {
+  stroke: var(--accent);
+  stroke-width: 2.4;
+}
+
+.node.downstream circle {
+  stroke: var(--accent2);
+  stroke-width: 2.0;
+}
+
+.node.dimmed { opacity: 0.55; }
+
+/* Formula formatting */
+.kv { margin: 0 0 10px 0; }
+.k { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+.v { font-size: 13px; line-height: 1.35; white-space: pre-wrap; }
+code {
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.9);
+  overflow-x: auto;
+}

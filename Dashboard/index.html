@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Causal Diagram Dashboard (D3)</title>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Causal Relationship Dashboard</h1>
+    <div class="hint">
+      Click a <b>node</b> to highlight connected edges + downstream path and resize by influence.
+      Click an <b>edge</b> to show its formula.
+    </div>
+  </header>
+
+  <main>
+    <div id="left">
+      <svg id="graph"></svg>
+    </div>
+
+    <aside id="right">
+      <h2>Selection</h2>
+      <div id="panel">
+        <div class="muted">Nothing selected yet.</div>
+      </div>
+
+      <div class="buttons">
+        <button id="resetBtn">Reset</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="graph.js"></script>
+</body>
+</html>
