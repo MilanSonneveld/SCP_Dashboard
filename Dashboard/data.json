@@ -1,286 +1,87 @@
 {
   "nodes": [
-    { "id": "commute_distance", "label": "Commute distance" },
-    { "id": "car_use", "label": "Car use" },
-    { "id": "public_transport_use", "label": "Public transport use" },
-    { "id": "active_cycling", "label": "Active cycling" },
-    { "id": "active_walking", "label": "Active walking" },
-    { "id": "physical_activity", "label": "Physical activity" },
-    { "id": "sedentary_time", "label": "Sedentary time" },
-    { "id": "environmental_quality", "label": "Environmental quality" },
-    { "id": "noise", "label": "Noise" },
-    { "id": "sleep_quality", "label": "Sleep quality" },
-    { "id": "mental_wellbeing", "label": "Mental wellbeing" },
-    { "id": "fatigue_offer", "label": "Fatigue" },
-    { "id": "perceived_stress", "label": "Perceived stress" },
-    { "id": "work_trip_balance", "label": "Work trip / social trip balance" },
+    { "id": "commute_distance", "label": "Commute distance", "theme": "accessibility" },
+    { "id": "car_use", "label": "Car use", "theme": "accessibility" },
+    { "id": "public_transport_use", "label": "Public transport use", "theme": "accessibility" },
+    { "id": "active_cycling", "label": "Active cycling", "theme": "health" },
+    { "id": "active_walking", "label": "Active walking", "theme": "health" },
+    { "id": "physical_activity", "label": "Physical activity", "theme": "health" },
+    { "id": "sedentary_time", "label": "Sedentary time", "theme": "health" },
+    { "id": "environmental_quality", "label": "Environmental quality", "theme": "environment" },
+    { "id": "noise", "label": "Noise", "theme": "environment" },
+    { "id": "sleep_quality", "label": "Sleep quality", "theme": "health" },
+    { "id": "mental_wellbeing", "label": "Mental wellbeing", "theme": "health" },
+    { "id": "fatigue_offer", "label": "Fatigue", "theme": "health" },
+    { "id": "perceived_stress", "label": "Perceived stress", "theme": "health" },
+    { "id": "work_trip_balance", "label": "Work trip / social trip balance", "theme": "accessibility" },
 
-    { "id": "phone_use_in_traffic", "label": "Phone use in traffic" },
-    { "id": "driver_alertness", "label": "Driver alertness" },
-    { "id": "reaction_distance", "label": "Reaction distance" },
+    { "id": "phone_use_in_traffic", "label": "Phone use in traffic", "theme": "safety" },
+    { "id": "driver_alertness", "label": "Driver alertness", "theme": "safety" },
+    { "id": "reaction_distance", "label": "Reaction distance", "theme": "safety" },
 
-    { "id": "number_of_vehicles", "label": "Number of vehicles on road" },
-    { "id": "traffic_rule_compliance", "label": "Traffic rule compliance rates" },
-    { "id": "social_norms", "label": "Social norm internalisation" },
+    { "id": "number_of_vehicles", "label": "Number of vehicles on road", "theme": "accessibility" },
+    { "id": "traffic_rule_compliance", "label": "Traffic rule compliance rates", "theme": "safety" },
+    { "id": "social_norms", "label": "Social norm internalisation", "theme": "safety" },
 
-    { "id": "road_condition", "label": "Road condition" },
-    { "id": "weather_conditions", "label": "Weather conditions" },
-    { "id": "road_quality", "label": "Road quality" },
+    { "id": "road_condition", "label": "Road condition", "theme": "safety" },
+    { "id": "weather_conditions", "label": "Weather conditions", "theme": "environment" },
+    { "id": "road_quality", "label": "Road quality", "theme": "accessibility" },
 
-    { "id": "alcohol_drugs_fatigue", "label": "Alcohol, fatigue & drugs use" },
+    { "id": "alcohol_drugs_fatigue", "label": "Alcohol, fatigue & drugs use", "theme": "safety" },
 
-    { "id": "number_of_accidents", "label": "Number of accidents" },
-    { "id": "accident_severity", "label": "Accident severity" },
-    { "id": "number_of_injuries", "label": "Number of injuries" },
-    { "id": "number_of_fatalities", "label": "Number of fatalities" },
+    { "id": "number_of_accidents", "label": "Number of accidents", "theme": "safety" },
+    { "id": "accident_severity", "label": "Accident severity", "theme": "safety" },
+    { "id": "number_of_injuries", "label": "Number of injuries", "theme": "safety" },
+    { "id": "number_of_fatalities", "label": "Number of fatalities", "theme": "safety" },
 
-    { "id": "car_safety", "label": "Car safety" },
-    { "id": "societal_safety_score", "label": "Societal safety score" },
+    { "id": "car_safety", "label": "Car safety", "theme": "safety" },
+    { "id": "societal_safety_score", "label": "Societal safety score", "theme": "safety" },
 
-    { "id": "general_physical_health", "label": "General physical health" }
+    { "id": "general_physical_health", "label": "General physical health", "theme": "health" }
   ],
   "links": [
-    {
-      "source": "commute_distance",
-      "target": "car_use",
-      "sign": "+",
-      "weight": 0.7,
-      "formula": "car_use = car_use + 0.7 * commute_distance"
-    },
-    {
-      "source": "commute_distance",
-      "target": "public_transport_use",
-      "sign": "+",
-      "weight": 0.4,
-      "formula": "pt_use = pt_use + 0.4 * commute_distance"
-    },
-    {
-      "source": "car_use",
-      "target": "active_cycling",
-      "sign": "-",
-      "weight": 0.5,
-      "formula": "cycling = cycling - 0.5 * car_use"
-    },
-    {
-      "source": "car_use",
-      "target": "active_walking",
-      "sign": "-",
-      "weight": 0.3,
-      "formula": "walking = walking - 0.3 * car_use"
-    },
-    {
-      "source": "public_transport_use",
-      "target": "active_walking",
-      "sign": "+",
-      "weight": 0.3,
-      "formula": "walking = walking + 0.3 * pt_use"
-    },
-    {
-      "source": "active_cycling",
-      "target": "physical_activity",
-      "sign": "+",
-      "weight": 0.6,
-      "formula": "physical_activity += 0.6 * cycling"
-    },
-    {
-      "source": "active_walking",
-      "target": "physical_activity",
-      "sign": "+",
-      "weight": 0.5,
-      "formula": "physical_activity += 0.5 * walking"
-    },
-    {
-      "source": "physical_activity",
-      "target": "sedentary_time",
-      "sign": "-",
-      "weight": 0.4,
-      "formula": "sedentary_time -= 0.4 * physical_activity"
-    },
-    {
-      "source": "car_use",
-      "target": "noise",
-      "sign": "+",
-      "weight": 0.5,
-      "formula": "noise += 0.5 * car_use"
-    },
-    {
-      "source": "car_use",
-      "target": "environmental_quality",
-      "sign": "-",
-      "weight": 0.4,
-      "formula": "env_quality -= 0.4 * car_use"
-    },
-    {
-      "source": "noise",
-      "target": "sleep_quality",
-      "sign": "-",
-      "weight": 0.5,
-      "formula": "sleep_quality -= 0.5 * noise"
-    },
-    {
-      "source": "sleep_quality",
-      "target": "mental_wellbeing",
-      "sign": "+",
-      "weight": 0.6,
-      "formula": "mental_wellbeing += 0.6 * sleep_quality"
-    },
-    {
-      "source": "perceived_stress",
-      "target": "sleep_quality",
-      "sign": "-",
-      "weight": 0.5,
-      "formula": "sleep_quality -= 0.5 * perceived_stress"
-    },
-    {
-      "source": "work_trip_balance",
-      "target": "perceived_stress",
-      "sign": "+",
-      "weight": 0.4,
-      "formula": "perceived_stress += 0.4 * work_trip_balance"
-    },
-    {
-      "source": "mental_wellbeing",
-      "target": "fatigue_offer",
-      "sign": "-",
-      "weight": 0.4,
-      "formula": "fatigue -= 0.4 * mental_wellbeing"
-    },
+    { "source": "commute_distance", "target": "car_use", "sign": "+", "weight": 0.7, "formula": "car_use = car_use + 0.7 * commute_distance" },
+    { "source": "commute_distance", "target": "public_transport_use", "sign": "+", "weight": 0.4, "formula": "pt_use = pt_use + 0.4 * commute_distance" },
 
-    {
-      "source": "phone_use_in_traffic",
-      "target": "driver_alertness",
-      "sign": "-",
-      "weight": 0.8,
-      "formula": "alertness = alertness - 0.8 * phone_use_in_traffic"
-    },
-    {
-      "source": "alcohol_drugs_fatigue",
-      "target": "driver_alertness",
-      "sign": "-",
-      "weight": 0.9,
-      "formula": "alertness = alertness - 0.9 * alcohol_drugs_fatigue"
-    },
-    {
-      "source": "fatigue_offer",
-      "target": "driver_alertness",
-      "sign": "-",
-      "weight": 0.6,
-      "formula": "alertness = alertness - 0.6 * fatigue"
-    },
-    {
-      "source": "driver_alertness",
-      "target": "reaction_distance",
-      "sign": "-",
-      "weight": 0.7,
-      "formula": "reaction_distance = reaction_distance - 0.7 * alertness"
-    },
+    { "source": "car_use", "target": "active_cycling", "sign": "-", "weight": 0.5, "formula": "cycling = cycling - 0.5 * car_use" },
+    { "source": "car_use", "target": "active_walking", "sign": "-", "weight": 0.3, "formula": "walking = walking - 0.3 * car_use" },
+    { "source": "public_transport_use", "target": "active_walking", "sign": "+", "weight": 0.3, "formula": "walking = walking + 0.3 * pt_use" },
 
-    {
-      "source": "car_use",
-      "target": "number_of_vehicles",
-      "sign": "+",
-      "weight": 0.7,
-      "formula": "vehicles += 0.7 * car_use"
-    },
-    {
-      "source": "traffic_rule_compliance",
-      "target": "number_of_accidents",
-      "sign": "-",
-      "weight": 0.7,
-      "formula": "accidents -= 0.7 * compliance"
-    },
-    {
-      "source": "social_norms",
-      "target": "traffic_rule_compliance",
-      "sign": "+",
-      "weight": 0.6,
-      "formula": "compliance += 0.6 * social_norms"
-    },
-    {
-      "source": "number_of_vehicles",
-      "target": "number_of_accidents",
-      "sign": "+",
-      "weight": 0.6,
-      "formula": "accidents += 0.6 * vehicles"
-    },
-    {
-      "source": "reaction_distance",
-      "target": "number_of_accidents",
-      "sign": "+",
-      "weight": 0.7,
-      "formula": "accidents += 0.7 * reaction_distance"
-    },
-    {
-      "source": "road_condition",
-      "target": "number_of_accidents",
-      "sign": "-",
-      "weight": 0.5,
-      "formula": "accidents -= 0.5 * road_condition"
-    },
-    {
-      "source": "weather_conditions",
-      "target": "road_condition",
-      "sign": "-",
-      "weight": 0.5,
-      "formula": "road_condition -= 0.5 * bad_weather"
-    },
-    {
-      "source": "road_quality",
-      "target": "road_condition",
-      "sign": "+",
-      "weight": 0.6,
-      "formula": "road_condition += 0.6 * road_quality"
-    },
+    { "source": "active_cycling", "target": "physical_activity", "sign": "+", "weight": 0.6, "formula": "physical_activity += 0.6 * cycling" },
+    { "source": "active_walking", "target": "physical_activity", "sign": "+", "weight": 0.5, "formula": "physical_activity += 0.5 * walking" },
+    { "source": "physical_activity", "target": "sedentary_time", "sign": "-", "weight": 0.4, "formula": "sedentary_time -= 0.4 * physical_activity" },
 
-    {
-      "source": "number_of_accidents",
-      "target": "accident_severity",
-      "sign": "+",
-      "weight": 0.4,
-      "formula": "severity += 0.4 * accidents"
-    },
-    {
-      "source": "car_safety",
-      "target": "accident_severity",
-      "sign": "-",
-      "weight": 0.6,
-      "formula": "severity -= 0.6 * car_safety"
-    },
-    {
-      "source": "accident_severity",
-      "target": "number_of_injuries",
-      "sign": "+",
-      "weight": 0.7,
-      "formula": "injuries += 0.7 * severity"
-    },
-    {
-      "source": "accident_severity",
-      "target": "number_of_fatalities",
-      "sign": "+",
-      "weight": 0.6,
-      "formula": "fatalities += 0.6 * severity"
-    },
-    {
-      "source": "number_of_injuries",
-      "target": "societal_safety_score",
-      "sign": "-",
-      "weight": 0.5,
-      "formula": "safety_score -= 0.5 * injuries"
-    },
-    {
-      "source": "number_of_fatalities",
-      "target": "societal_safety_score",
-      "sign": "-",
-      "weight": 0.8,
-      "formula": "safety_score -= 0.8 * fatalities"
-    },
+    { "source": "car_use", "target": "noise", "sign": "+", "weight": 0.5, "formula": "noise += 0.5 * car_use" },
+    { "source": "car_use", "target": "environmental_quality", "sign": "-", "weight": 0.4, "formula": "env_quality -= 0.4 * car_use" },
+    { "source": "noise", "target": "sleep_quality", "sign": "-", "weight": 0.5, "formula": "sleep_quality -= 0.5 * noise" },
 
-    {
-      "source": "physical_activity",
-      "target": "general_physical_health",
-      "sign": "+",
-      "weight": 0.6,
-      "formula": "general_health += 0.6 * physical_activity"
-    }
+    { "source": "sleep_quality", "target": "mental_wellbeing", "sign": "+", "weight": 0.6, "formula": "mental_wellbeing += 0.6 * sleep_quality" },
+    { "source": "perceived_stress", "target": "sleep_quality", "sign": "-", "weight": 0.5, "formula": "sleep_quality -= 0.5 * perceived_stress" },
+    { "source": "work_trip_balance", "target": "perceived_stress", "sign": "+", "weight": 0.4, "formula": "perceived_stress += 0.4 * work_trip_balance" },
+    { "source": "mental_wellbeing", "target": "fatigue_offer", "sign": "-", "weight": 0.4, "formula": "fatigue -= 0.4 * mental_wellbeing" },
+
+    { "source": "phone_use_in_traffic", "target": "driver_alertness", "sign": "-", "weight": 0.8, "formula": "alertness = alertness - 0.8 * phone_use_in_traffic" },
+    { "source": "alcohol_drugs_fatigue", "target": "driver_alertness", "sign": "-", "weight": 0.9, "formula": "alertness = alertness - 0.9 * alcohol_drugs_fatigue" },
+    { "source": "fatigue_offer", "target": "driver_alertness", "sign": "-", "weight": 0.6, "formula": "alertness = alertness - 0.6 * fatigue" },
+    { "source": "driver_alertness", "target": "reaction_distance", "sign": "-", "weight": 0.7, "formula": "reaction_distance = reaction_distance - 0.7 * alertness" },
+
+    { "source": "car_use", "target": "number_of_vehicles", "sign": "+", "weight": 0.7, "formula": "vehicles += 0.7 * car_use" },
+    { "source": "traffic_rule_compliance", "target": "number_of_accidents", "sign": "-", "weight": 0.7, "formula": "accidents -= 0.7 * compliance" },
+    { "source": "social_norms", "target": "traffic_rule_compliance", "sign": "+", "weight": 0.6, "formula": "compliance += 0.6 * social_norms" },
+    { "source": "number_of_vehicles", "target": "number_of_accidents", "sign": "+", "weight": 0.6, "formula": "accidents += 0.6 * vehicles" },
+    { "source": "reaction_distance", "target": "number_of_accidents", "sign": "+", "weight": 0.7, "formula": "accidents += 0.7 * reaction_distance" },
+
+    { "source": "road_quality", "target": "road_condition", "sign": "+", "weight": 0.6, "formula": "road_condition += 0.6 * road_quality" },
+    { "source": "weather_conditions", "target": "road_condition", "sign": "-", "weight": 0.5, "formula": "road_condition -= 0.5 * bad_weather" },
+    { "source": "road_condition", "target": "number_of_accidents", "sign": "-", "weight": 0.5, "formula": "accidents -= 0.5 * road_condition" },
+
+    { "source": "number_of_accidents", "target": "accident_severity", "sign": "+", "weight": 0.4, "formula": "severity += 0.4 * accidents" },
+    { "source": "car_safety", "target": "accident_severity", "sign": "-", "weight": 0.6, "formula": "severity -= 0.6 * car_safety" },
+    { "source": "accident_severity", "target": "number_of_injuries", "sign": "+", "weight": 0.7, "formula": "injuries += 0.7 * severity" },
+    { "source": "accident_severity", "target": "number_of_fatalities", "sign": "+", "weight": 0.6, "formula": "fatalities += 0.6 * severity" },
+    { "source": "number_of_injuries", "target": "societal_safety_score", "sign": "-", "weight": 0.5, "formula": "safety_score -= 0.5 * injuries" },
+    { "source": "number_of_fatalities", "target": "societal_safety_score", "sign": "-", "weight": 0.8, "formula": "safety_score -= 0.8 * fatalities" },
+
+    { "source": "physical_activity", "target": "general_physical_health", "sign": "+", "weight": 0.6, "formula": "general_health += 0.6 * physical_activity" }
   ]
 }
