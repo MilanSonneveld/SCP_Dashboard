@@ -14,11 +14,19 @@
 
 * { box-sizing: border-box; }
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
+}
+
+body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background: var(--bg);
   color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* no page scroll */
 }
 
 header {
@@ -30,14 +38,28 @@ header {
 h1 { margin: 0 0 8px 0; font-size: 18px; }
 .hint { color: var(--muted); font-size: 13px; line-height: 1.4; }
 
+/* ====== DASHBOARD LAYOUT ======
+   2 columns (graph + side panel)
+   2 rows (main content + bottom formula)
+*/
 main {
+  flex: 1 1 auto;
+  min-height: 0;
   display: grid;
+
   grid-template-columns: 1fr 360px;
+  grid-template-rows: 1fr 320px; /* bigger bottom panel */
   gap: 12px;
   padding: 12px;
-  height: calc(100vh - 74px);
 }
 
+/* grid placement */
+#left   { grid-column: 1; grid-row: 1; min-height: 0; }
+#right  { grid-column: 2; grid-row: 1; min-height: 0; overflow: auto; }
+#drawer { grid-column: 1 / span 2; grid-row: 2; min-height: 0; }
+
+
+/* Left (graph) panel */
 #left {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -48,6 +70,7 @@ main {
 
 #graph { width: 100%; height: 100%; display: block; }
 
+/* Right side panel */
 #right {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -80,13 +103,11 @@ button {
 button:hover { background: #e9eefc; }
 
 /* ---- Graph ---- */
-
 .link {
   stroke: var(--link);
   stroke-width: 2.2;
   fill: none;
   cursor: pointer;
-  /* important: make thin lines clickable */
   pointer-events: stroke;
 }
 
@@ -136,4 +157,125 @@ code {
   color: rgba(18,24,38,0.95);
   overflow-x: auto;
 }
+
+/* Sliders */
+.sliders {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.slider {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  background: #fbfcff;
+}
+
+.slider .top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.slider .name { font-size: 13px; font-weight: 600; }
+.slider .val { font-size: 12px; color: var(--muted); }
+
+.slider input[type="range"] { width: 100%; margin-top: 8px; }
+
+/* ====== Bottom Formula Panel (not fixed; part of grid) ====== */
+.drawer {
+  position: relative;
+  height: auto;
+
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  background: #fbfcff;
+}
+
+.drawer-title { font-weight: 700; }
+
+.drawer-body {
+  display: grid;
+  grid-template-columns: 1.35fr 0.95fr; /* left bigger than right */
+  gap: 12px;
+  padding: 12px;
+  height: calc(100% - 48px);
+}
+
+.drawer-col { overflow: auto; }
+
+.drawer-formula {
+  margin: 0;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f2f4fb;
+  border: 1px solid var(--border);
+  height: auto;
+  max-height: 140px; /* keeps formula readable; adjust if you want */
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+.drawer-text { font-size: 13px; line-height: 1.35; }
+
+.drawer-sources { margin: 6px 0 0 18px; }
+.drawer-sources li { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+
+.vars {
+  display: grid;
+  gap: 10px;
+}
+
+.var {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  background: #fbfcff;
+}
+
+.var-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.var-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.var-default {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.var-desc {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.vars-empty {
+  padding: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background: #fbfcff;
+}
+
 
