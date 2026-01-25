@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Causal Diagram Dashboard (D3)</title>
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
+  <!-- Use LOCAL D3 to avoid CDN caching + offline surprises -->
+  <script src="d3.v7.min.js"></script>
+  <link rel="stylesheet" href="style_positions_v2.css" />
 </head>
 
 <body>
@@ -23,59 +24,89 @@
       <svg id="graph"></svg>
     </div>
 
-    <!-- Right side: ONLY inputs -->
     <aside id="right">
-      <h2>Input variables</h2>
-      <div class="muted" style="margin-bottom:10px;">
-        Use the sliders to adjust assumptions. Changes affect the quantified relationships shown below.
-      </div>
-
-      <div id="sliders" class="sliders"></div>
-
-      <div class="buttons">
-        <button id="resetBtn">Reset</button>
-      </div>
-    </aside>
-
-    <!-- Bottom: Formula panel (always visible) -->
-    <section id="drawer" class="drawer" aria-hidden="false">
-      <div class="drawer-header">
-        <div id="drawerTitle" class="drawer-title">Formula details</div>
-      </div>
-
-      <div class="drawer-body">
-        <!-- Left column -->
-        <div class="drawer-col">
-          <div class="k">Selected relationship</div>
-          <div id="drawerEdge" class="drawer-text muted">Click an edge to view its quantification.</div>
-
-          <div class="k" style="margin-top:10px;">Formula</div>
-          <pre id="drawerFormula" class="drawer-formula">—</pre>
-
-          <div class="k" style="margin-top:10px;">Explanation</div>
-          <div id="drawerExplanation" class="drawer-text muted">—</div>
-
-          <div class="k" style="margin-top:10px;">Sources</div>
-          <ul id="drawerSources" class="drawer-sources"></ul>
+      <div class="sidebar-header">
+        <div class="sidebar-title">Input variables</div>
+        <div class="sidebar-subtitle">
+          Use the sliders to adjust assumptions. Changes affect the quantified relationships shown below.
         </div>
 
-        <!-- Right column: Quantification / variables -->
-        <div class="drawer-col">
-          <div class="k">Quantification</div>
-          <div class="muted" style="margin-bottom:10px;">
-            Variables used in the function, with a short description and default (starting) value.
-          </div>
+        <div class="toolbar">
+          <button id="resetBtn" class="btn">Reset</button>
 
-          <div id="drawerVars" class="vars">
-            <!-- JS should populate variable rows here -->
-            <div class="vars-empty muted">—</div>
-          </div>
+          <button id="editLayoutBtn" class="btn btn-secondary" title="Enable dragging nodes to new positions">
+            Edit layout
+          </button>
+
+          <button id="exportPositionsBtn" class="btn btn-secondary" title="Download data.json with x/y positions added">
+            Export positions
+          </button>
+
+          <button id="importPositionsBtn" class="btn btn-secondary" title="Load positions from a JSON file">
+            Import positions
+          </button>
+          <input id="importPositionsFile" type="file" accept="application/json" style="display:none" />
+
+          <button id="clearPositionsBtn" class="btn btn-secondary" title="Remove saved positions and go back to auto layout">
+            Clear positions
+          </button>
+
+          <button id="exportSvgBtn" class="btn btn-secondary" title="Download the current SVG">
+            Export SVG
+          </button>
+        </div>
+
+        <div class="tiny" id="buildTag"></div>
+      </div>
+
+      <div id="sliders"></div>
+    </aside>
+
+    <section id="edgeInfo" class="panel">
+      <div class="drawer-header">
+        <div class="drawer-title" id="drawerTitle">Formula details</div>
+        <div class="drawer-actions"></div>
+      </div>
+
+      <div class="drawer-left">
+        <div class="drawer-section">
+          <div class="drawer-label">Selected relationship</div>
+          <div id="drawerEdge" class="drawer-value">Click an edge to view its quantification.</div>
+        </div>
+
+        <div class="drawer-section">
+          <div class="drawer-label">Formula</div>
+          <pre id="drawerFormula" class="codebox">—</pre>
+        </div>
+
+        <div class="drawer-section">
+          <div class="drawer-label">Explanation</div>
+          <div id="drawerExplanation" class="drawer-value">—</div>
+        </div>
+
+        <div class="drawer-section">
+          <div class="drawer-label">Sources</div>
+          <ul id="drawerSources" class="sources"></ul>
         </div>
       </div>
     </section>
-  </main>
 
-  <script src="graph.js"></script>
+
+    <section id="edgeParams" class="panel">
+      <div class="drawer-section drawer-right-header" style="margin-top:0">
+        <div>
+          <div class="drawer-label">Quantification</div>
+          <div class="drawer-subtitle">Variables used in the function, with a short description and default (starting) value.</div>
+        </div>
+        <button id="resetEdgeVarsBtn" class="btn btn-secondary btn-small" style="display:none">Reset</button>
+      </div>
+
+      <div id="drawerVars" class="vars"></div>
+    </section>
+
+</main>
+
+  <script src="graph_positions_v3.js"></script>
 </body>
 </html>
 
