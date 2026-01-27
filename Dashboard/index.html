@@ -7,7 +7,7 @@
 
   <script src="d3.v7.min.js"></script>
   <!-- Use LOCAL D3 to avoid CDN caching + offline surprises -->
-  <link rel="stylesheet" href="style_positions_v2.css" />
+  <link rel="stylesheet" href="style_new.css" />
 </head>
 
 <body>
@@ -40,6 +40,10 @@
 
           <button id="exportPositionsBtn" class="btn btn-secondary" title="Download data.json with x/y positions added">
             Export positions
+          </button>
+
+          <button id="exportModelBtn" class="btn btn-secondary" title="Download the full model (including formulas and parameter metadata)">
+            Export model
           </button>
 
           <button id="importPositionsBtn" class="btn btn-secondary" title="Load positions from a JSON file">
@@ -79,6 +83,19 @@
           <pre id="drawerFormula" class="codebox">—</pre>
         </div>
 
+      <div class="drawer-section">
+        <div class="drawer-label">Compute (machine readable)</div>
+        <div class="tiny" id="drawerComputeMeta">—</div>
+        <pre id="drawerComputeExpr" class="codebox">—</pre>
+
+        <div class="tiny" style="margin-top:8px">Edit expression (local-only; runs as JS):</div>
+        <textarea id="computeExprEditor" class="codeedit" rows="3" spellcheck="false"></textarea>
+        <div class="row-actions">
+          <button id="applyComputeExprBtn" class="btn btn-secondary btn-small">Apply</button>
+          <button id="syncUsesBtn" class="btn btn-secondary btn-small" title="Parse variables from the expression and update sliders">Sync variables</button>
+        </div>
+      </div>
+
         <div class="drawer-section">
           <div class="drawer-label">Explanation</div>
           <div id="drawerExplanation" class="drawer-value">—</div>
@@ -98,16 +115,20 @@
           <div class="drawer-label">Quantification</div>
           <div class="drawer-subtitle">Variables used in the function, with a short description and default (starting) value.</div>
         </div>
-        <button id="resetEdgeVarsBtn" class="btn btn-secondary btn-small" style="display:none">Reset</button>
+        <div class="row-actions">
+          <button id="addVarBtn" class="btn btn-secondary btn-small" style="display:none">Add variable</button>
+          <button id="resetEdgeVarsBtn" class="btn btn-secondary btn-small" style="display:none">Reset</button>
+        </div>
       </div>
 
+      <div id="addVarForm" class="var-form" style="display:none"></div>
       <div id="drawerVars" class="vars"></div>
     </section>
 
 </main>
 
   <script src="d3.v7.min.js"></script>
-  <script src="graph_positions_v10_many_formulas.js"></script>
+  <script src="graph_new.js"></script>
 </body>
 </html>
 
