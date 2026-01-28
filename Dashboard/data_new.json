@@ -839,8 +839,8 @@
       }
     },
     {
-      "source": "fragmentation_of_green_space",
-      "target": "land_use_infrastructure_per_modality",
+      "source": "land_use_infrastructure_per_modality",
+      "target": "fragmentation_of_green_space",
       "sign": "+",
       "weight": 0.5,
       "formula": "",

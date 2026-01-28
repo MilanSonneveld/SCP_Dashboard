@@ -13,8 +13,8 @@
         "step": 1000000,
         "default": 50000000
       },
-      "x": 800.0,
-      "y": 350.0,
+      "x": 1662.7370667525756,
+      "y": -97.49869457594494,
       "baseline": 50000000
     },
     {
@@ -24,19 +24,19 @@
       "unit": "veh/day of vkm/jaar",
       "theme": "accessibility",
       "higher_is_better": false,
-      "x": 795.6847731043125,
-      "y": 392.25020508046225,
+      "x": 1531.7100412029592,
+      "y": 386.8909342034134,
       "baseline": 0
     },
     {
       "id": "gdp",
       "label": "GDP",
       "type": "Output",
-      "unit": "\u20ac / jaar, CBS",
+      "unit": "€ / jaar, CBS",
       "theme": "accessibility",
       "higher_is_better": true,
-      "x": 761.9042339483565,
-      "y": 471.92373595340865,
+      "x": 1221.2756796820786,
+      "y": -330.3030688388353,
       "baseline": 0
     },
     {
@@ -46,8 +46,8 @@
       "unit": "DALYs/100k",
       "theme": "environment",
       "higher_is_better": null,
-      "x": 733.4107262955318,
-      "y": 507.0549993239106,
+      "x": 612.6641372888054,
+      "y": 306.8555929252865,
       "baseline": 0
     },
     {
@@ -57,8 +57,8 @@
       "unit": "WHO/RIVM",
       "theme": "health",
       "higher_is_better": null,
-      "x": 698.2024170170245,
-      "y": 537.668076313181,
+      "x": 589.3027852729005,
+      "y": 1119.5359797020922,
       "baseline": 0
     },
     {
@@ -68,8 +68,8 @@
       "unit": "WHO-5 Well-Being Index or SF-12/36 Mental Component Score",
       "theme": "health",
       "higher_is_better": true,
-      "x": 657.2921850671695,
-      "y": 562.8822844333279,
+      "x": 868.4886607382938,
+      "y": 668.0884448431408,
       "baseline": 0
     },
     {
@@ -79,8 +79,8 @@
       "unit": "PSQI",
       "theme": "health",
       "higher_is_better": null,
-      "x": 611.8569433340926,
-      "y": 581.9722568241273,
+      "x": 873.0652188144386,
+      "y": 906.6324237396838,
       "baseline": 0
     },
     {
@@ -90,8 +90,8 @@
       "unit": "A",
       "theme": "environment",
       "higher_is_better": false,
-      "x": 563.2037809987179,
-      "y": 594.3888097369215,
+      "x": 1165.8990719813885,
+      "y": 1086.2899379349583,
       "baseline": 0
     },
     {
@@ -101,8 +101,8 @@
       "unit": "PSS-10",
       "theme": "health",
       "higher_is_better": false,
-      "x": 512.7323609588445,
-      "y": 599.7747415511703,
+      "x": 1263.0850525885076,
+      "y": 937.2351005925492,
       "baseline": 0
     },
     {
@@ -112,8 +112,8 @@
       "unit": "KSS",
       "theme": "health",
       "higher_is_better": false,
-      "x": 461.8946540759364,
-      "y": 597.9751088147192,
+      "x": 1133.6727222587563,
+      "y": 752.7279774956482,
       "baseline": 0
     },
     {
@@ -129,8 +129,8 @@
         "step": 1,
         "default": 15
       },
-      "x": 251.44710522684738,
-      "y": 489.99369653439885,
+      "x": 1995.361713963124,
+      "y": -97.53238836190769,
       "baseline": 15
     },
     {
@@ -140,15 +140,15 @@
       "unit": "Grip / friction score",
       "theme": "safety",
       "higher_is_better": true,
-      "x": 209.6801159199503,
-      "y": 412.9945153462813,
+      "x": 1988.9329231513939,
+      "y": 342.7875097394866,
       "baseline": 0
     },
     {
       "id": "car_safety",
       "label": "Car safety",
       "type": "Input",
-      "unit": "1\u20135 stars",
+      "unit": "1–5 stars",
       "theme": "safety",
       "higher_is_better": true,
       "slider": {
@@ -157,8 +157,8 @@
         "step": 0.5,
         "default": 4
       },
-      "x": 201.08075343724204,
-      "y": 371.2014811188774,
+      "x": 2581.471843726636,
+      "y": 393.3546398621687,
       "baseline": 4
     },
     {
@@ -168,8 +168,8 @@
       "unit": "%",
       "theme": "safety",
       "higher_is_better": true,
-      "x": 201.08075343724204,
-      "y": 328.7985188811228,
+      "x": 1715.4008436646702,
+      "y": 985.9978533609467,
       "baseline": 0
     },
     {
@@ -179,8 +179,8 @@
       "unit": "Traffic accidents per year",
       "theme": "safety",
       "higher_is_better": false,
-      "x": 251.44710522684727,
-      "y": 210.0063034656013,
+      "x": 2476.9732866132917,
+      "y": 924.7926762021445,
       "baseline": 0
     },
     {
@@ -190,8 +190,8 @@
       "unit": "AIS / MAIS",
       "theme": "safety",
       "higher_is_better": false,
-      "x": 283.41317181364263,
-      "y": 177.01528275561347,
+      "x": 2436.5671574766898,
+      "y": 184.2358246491405,
       "baseline": 0
     },
     {
@@ -201,8 +201,8 @@
       "unit": "injured persons per year",
       "theme": "safety",
       "higher_is_better": false,
-      "x": 321.61004710871407,
-      "y": 149.00071740826485,
+      "x": 2826.2548331735256,
+      "y": 911.3760219447723,
       "baseline": 0
     },
     {
@@ -212,8 +212,8 @@
       "unit": "Traffic fatalities per year",
       "theme": "safety",
       "higher_is_better": false,
-      "x": 364.9388765546979,
-      "y": 126.7685354626079,
+      "x": 2914.188143101105,
+      "y": 469.19892632876554,
       "baseline": 0
     },
     {
@@ -223,26 +223,26 @@
       "unit": "well-to-wheel",
       "theme": "environment",
       "higher_is_better": false,
-      "x": 461.8946540759362,
-      "y": 102.02489118528078,
+      "x": 972.3822612571275,
+      "y": 514.4119445795052,
       "baseline": 0
     },
     {
       "id": "land_use_infrastructure_per_modality",
       "label": "Land use of infrastructure per modality",
       "type": "Input",
-      "unit": "m\u00b2 infrastructure per modality",
+      "unit": "m² infrastructure per modality",
       "theme": "environment",
       "higher_is_better": false,
       "slider": {
         "min": 0,
         "max": 20000000,
         "step": 100000,
-        "default": 3000000
+        "default": 12000000
       },
-      "x": 563.203780998718,
-      "y": 105.61119026307847,
-      "baseline": 3000000
+      "x": 23.246582597729628,
+      "y": 547.8627041749502,
+      "baseline": 12000000
     },
     {
       "id": "fragmentation_of_green_space",
@@ -251,26 +251,26 @@
       "unit": "Landscape fragmentation index / effective mesh size",
       "theme": "environment",
       "higher_is_better": false,
-      "x": 611.8569433340925,
-      "y": 118.02774317587264,
+      "x": -412.89110217759435,
+      "y": 705.1360542724149,
       "baseline": 0
     },
     {
       "id": "land_use_for_parking_or_docking_facilities",
       "label": "Land use for parking or docking facilities",
       "type": "Input",
-      "unit": "m\u00b2 parking / docking area",
+      "unit": "m² parking / docking area",
       "theme": "environment",
       "higher_is_better": false,
       "slider": {
         "min": 0,
         "max": 10000000,
         "step": 50000,
-        "default": 800000
+        "default": 4000000
       },
-      "x": 698.2024170170243,
-      "y": 162.33192368681887,
-      "baseline": 800000
+      "x": 377.09838551709015,
+      "y": 602.7894270745264,
+      "baseline": 4000000
     },
     {
       "id": "green_grey_ratio",
@@ -279,19 +279,19 @@
       "unit": "NDVI or % green within 300 m buffer",
       "theme": "environment",
       "higher_is_better": true,
-      "x": 733.4107262955318,
-      "y": 192.94500067608942,
-      "baseline": 0
+      "x": 307.16394682256146,
+      "y": 202.05072543175498,
+      "baseline": 30
     },
     {
       "id": "air_quality",
       "label": "Air quality",
       "type": "Output",
-      "unit": "\u00b5g/m\u00b3",
+      "unit": "µg/m³",
       "theme": "environment",
       "higher_is_better": null,
-      "x": 761.9042339483565,
-      "y": 228.07626404659146,
+      "x": 1170.7472176234573,
+      "y": 328.01027475520465,
       "baseline": 0
     },
     {
@@ -301,8 +301,8 @@
       "unit": "",
       "theme": "",
       "higher_is_better": null,
-      "x": 667.0,
-      "y": 588.0,
+      "x": 1568.7580462443805,
+      "y": -256.4722598745179,
       "baseline": 0
     },
     {
@@ -312,8 +312,8 @@
       "unit": "",
       "theme": "",
       "higher_is_better": null,
-      "x": 650.0,
-      "y": 446.0,
+      "x": 990.1747079363449,
+      "y": 69.52504123271672,
       "baseline": 0
     },
     {
@@ -323,8 +323,8 @@
       "unit": "",
       "theme": "",
       "higher_is_better": null,
-      "x": 670.0,
-      "y": 92.0,
+      "x": 1456.6113884310694,
+      "y": 628.1493314867496,
       "baseline": 0
     },
     {
@@ -334,8 +334,8 @@
       "unit": "",
       "theme": "",
       "higher_is_better": null,
-      "x": 880.0,
-      "y": 499.0,
+      "x": 816.2502006211539,
+      "y": -154.10850990819736,
       "baseline": 0
     },
     {
@@ -345,8 +345,8 @@
       "unit": "",
       "theme": "",
       "higher_is_better": null,
-      "x": 164.0,
-      "y": 438.0,
+      "x": 1372.777348384225,
+      "y": 8.066335204178984,
       "baseline": 0
     },
     {
@@ -356,8 +356,8 @@
       "unit": "",
       "theme": "",
       "higher_is_better": null,
-      "x": 438.0,
-      "y": 121.0,
+      "x": 441.1708590357389,
+      "y": -153.41796091616987,
       "baseline": 0
     }
   ],
@@ -367,7 +367,7 @@
       "target": "gdp",
       "sign": "+",
       "weight": 0.5,
-      "formula": "GDP=\u2212572557+(\u22120.39354\u22c540,21520196)\u22c5KM_MLN_Truck\u200b+233.777\u22c5KM_SNELWEG (=2500 km)+904.2792\u22c5MLN_PERSONEN_SECTOR (=441,13)+53.1052\u22c5MLN_INVESTMENTS (=7667)",
+      "formula": "GDP=−572557+(−0.39354⋅40,21520196)⋅KM_MLN_Truck​+233.777⋅KM_SNELWEG (=2500 km)+904.2792⋅MLN_PERSONEN_SECTOR (=441,13)+53.1052⋅MLN_INVESTMENTS (=7667)",
       "impact": {
         "type": "qualitative"
       },
@@ -393,10 +393,10 @@
       "target": "number_of_vehicles_on_road",
       "sign": "+",
       "weight": 0.7,
-      "formula": "\u0394N = \u0394TRUCK_KM / 40.000 OF total cars on road (totaal jaar) = \u0394TRUCK_KM / 40.000 + personal cars",
+      "formula": "ΔN = ΔTRUCK_KM / 40.000 OF total cars on road (totaal jaar) = ΔTRUCK_KM / 40.000 + personal cars",
       "impact": {
         "type": "linear",
-        "k": 2.5e-05
+        "k": 0.000025
       },
       "explanation": "Change in vehicles on road from change in freight vehicle-km, using an average annual vehicle-km per vehicle.",
       "sources": [
@@ -417,7 +417,7 @@
       "target": "number_of_accidents",
       "sign": "+",
       "weight": 0.6,
-      "formula": "D/n=0.0003\u22c5(p/n)2/3",
+      "formula": "D/n=0.0003⋅(p/n)2/3",
       "impact": {
         "type": "qualitative"
       },
@@ -439,7 +439,7 @@
       "target": "sleep_quality",
       "sign": "-",
       "weight": 0.6,
-      "formula": "%High sleep disturbance = 20.8\u22121.05*dB\u200b + 0.01486 * dB^2\u200b",
+      "formula": "%High sleep disturbance = 20.8−1.05*dB​ + 0.01486 * dB^2​",
       "impact": {
         "type": "qualitative"
       },
@@ -461,7 +461,7 @@
       "target": "mental_wellbeing",
       "sign": "+",
       "weight": 0.5,
-      "formula": "\u0394(Mental wellbeing problems)\u2248+26% odds per +10% poor sleep",
+      "formula": "Δ(Mental wellbeing problems)≈+26% odds per +10% poor sleep",
       "impact": {
         "type": "qualitative"
       },
@@ -483,7 +483,7 @@
       "target": "fatigue",
       "sign": "-",
       "weight": 0.5,
-      "formula": "Fatigue severity = \u0251 - 0.16*sleep quality + controls",
+      "formula": "Fatigue severity = ɑ - 0.16*sleep quality + controls",
       "impact": {
         "type": "qualitative"
       },
@@ -505,7 +505,7 @@
       "target": "mental_wellbeing",
       "sign": "-",
       "weight": 0.7,
-      "formula": "\u0394Mental wellbeing=\u22120.848\u00d7perceived stress+\u03b5",
+      "formula": "ΔMental wellbeing=−0.848×perceived stress+ε",
       "impact": {
         "type": "linear",
         "k": 0.848
@@ -528,7 +528,7 @@
       "target": "fatigue",
       "sign": "+",
       "weight": 0.5,
-      "formula": "Fatigue=\u0251-0.3*perceived stress+controls",
+      "formula": "Fatigue=ɑ-0.3*perceived stress+controls",
       "impact": {
         "type": "linear",
         "k": 0.3
@@ -551,7 +551,7 @@
       "target": "general_physical_health",
       "sign": "+",
       "weight": 0.5,
-      "formula": "DALYPM2.5\u200b\u2248(1.06210^(C\u2212C0\u200b)\u200b/1.06210^(C\u2212C0\u200b)\u200b\u22121\u200b)\u22c5Deathsbaseline\u200b\u22c5LE",
+      "formula": "DALYPM2.5​≈(1.06210^(C−C0​)​/1.06210^(C−C0​)​−1​)⋅Deathsbaseline​⋅LE",
       "impact": {
         "type": "qualitative"
       },
@@ -620,12 +620,12 @@
       "target": "number_of_accidents",
       "sign": "-",
       "weight": 0.7,
-      "formula": "delta ongevalle= beta * delta weerskwaliteit (zou zeggen beta = \u22121,085)",
+      "formula": "delta ongevalle= beta * delta weerskwaliteit (zou zeggen beta = −1,085)",
       "impact": {
         "type": "linear",
         "k": 1.085
       },
-      "explanation": "Linear approximation using \u03b2\u22481.085 (placeholder units).",
+      "explanation": "Linear approximation using β≈1.085 (placeholder units).",
       "sources": [
         "https://riskenbusiness.nl/nieuws/nieuwsbrief/swov-ongevalsrisico-bij-regen-twee-keer-zo-groot-als-bij-normaal-weer/#:~:text=Het%20weer%20is%20van%20invloed,Hoewel%20het"
       ],
@@ -665,7 +665,7 @@
       "target": "number_of_fatalities",
       "sign": "+",
       "weight": 0.7,
-      "formula": "Pd\u200b(v)\u221dv^n",
+      "formula": "Pd​(v)∝v^n",
       "impact": {
         "type": "qualitative"
       },
@@ -710,7 +710,7 @@
       "target": "number_of_fatalities",
       "sign": "+",
       "weight": 0.6,
-      "formula": "D=0,0149\u22c5O",
+      "formula": "D=0,0149⋅O",
       "impact": {
         "type": "linear",
         "k": 0.0149
@@ -758,7 +758,7 @@
       "target": "air_quality",
       "sign": "-",
       "weight": 0.4,
-      "formula": "\u0394(PM\u2082.\u2085 (\u00b5g/m\u00b3)) \u2248 c\u2082 \u00d7 \u0394GHG(CO\u2082, Mt)",
+      "formula": "Δ(PM₂.₅ (µg/m³)) ≈ c₂ × ΔGHG(CO₂, Mt)",
       "impact": {
         "type": "qualitative"
       },
@@ -769,7 +769,7 @@
       "id": "greenhouse_gas_emissions__air_quality",
       "compute": {
         "mode": "delta",
-        "expr": "(fromDelta * beta) * -1",
+        "expr": "(fromDelta * beta) ",
         "uses": [
           "beta"
         ]
@@ -780,7 +780,7 @@
       "target": "air_quality",
       "sign": "+",
       "weight": 0.5,
-      "formula": "\u0394(PM\u2082.\u2085 (\u00b5g/m\u00b3)) \u2248 -c\u2083 \u00d7 \u0394(Green/Grey ratio).",
+      "formula": "Δ(PM₂.₅ (µg/m³)) ≈ -c₃ × Δ(Green/Grey ratio).",
       "impact": {
         "type": "qualitative"
       },
@@ -791,7 +791,7 @@
       "id": "green_grey_ratio__air_quality",
       "compute": {
         "mode": "delta",
-        "expr": "fromDelta * beta",
+        "expr": "-(fromDelta * beta)\n",
         "uses": [
           "beta"
         ]
@@ -802,7 +802,7 @@
       "target": "greenhouse_gas_emissions",
       "sign": "+",
       "weight": 0.7,
-      "formula": "\u0394GHG = \u0394Number_road * 1.21 [ton CO2/year] + \u0394GHG_trucks",
+      "formula": "ΔGHG = ΔNumber_road * 1.21 [ton CO2/year] + ΔGHG_trucks",
       "impact": {
         "type": "linear",
         "k": 1.21
@@ -843,15 +843,17 @@
       "target": "fragmentation_of_green_space",
       "sign": "+",
       "weight": 0.5,
-      "formula": "",
+      "formula": "ΔFragmentation_index ≈ β₁ * Δ(land use of infr [ha])",
       "impact": {},
       "explanation": "",
       "sources": [],
       "id": "fragmentation_of_green_space__land_use_infrastructure_per_modality",
       "compute": {
         "mode": "absolute",
-        "expr": "from * 0.5",
-        "uses": []
+        "expr": "fromDelta * beta\n",
+        "uses": [
+          "beta"
+        ]
       }
     },
     {
@@ -859,7 +861,7 @@
       "target": "land_use_infrastructure_per_modality",
       "sign": "+",
       "weight": 0.5,
-      "formula": "\u0394(Infrastructure Land (ha))\u2248k\u00d7\u0394(Parking Land (ha))",
+      "formula": "Δ(Infrastructure Land (ha))≈k×Δ(Parking Land (ha))",
       "impact": {},
       "explanation": "From spreadsheet (placeholder).",
       "sources": [],
@@ -877,14 +879,14 @@
       "target": "green_grey_ratio",
       "sign": "-",
       "weight": 0.5,
-      "formula": "\u0394GR = (G - \u0394P) / (R + \u0394P) - (G / R)",
+      "formula": "Δ(Green/Grey ratio) ≈ −β · Δ(Infrastructure land [ha]),\nwith β derived from (G − ΔP)/(R + ΔP) − (G/R) around the baseline",
       "impact": {},
-      "explanation": "From spreadsheet (placeholder).",
+      "explanation": "An increase in infrastructure land typically reduces the Green/Grey ratio by converting green space into built (grey) area.\nIn this model, the effect is represented using a linear approximation: each additional hectare of infrastructure land leads to a proportional decrease in the Green/Grey ratio.\nThis relationship is a simplified, first-order approximation of the underlying ratio\n(\nG\n−\nΔ\nP\n)\n/\n(\nR\n+\nΔ\nP\n)\n(G−ΔP)/(R+ΔP) around the baseline situation.\nIt is intended to capture the direction and relative strength of the effect for scenario exploration, rather than to model exact land-use accounting or nonlinear dynamics.",
       "sources": [],
       "id": "land_use_infrastructure_per_modality__green_grey_ratio",
       "compute": {
         "mode": "delta",
-        "expr": "(fromDelta * beta) * -1",
+        "expr": "-(fromDelta * beta)\n",
         "uses": [
           "beta"
         ]
@@ -913,7 +915,7 @@
       "target": "land_use_for_parking_or_docking_facilities",
       "sign": "+",
       "weight": 0.5,
-      "formula": "\u0394(Parking_or_docking_area [ha]) = \u03b1 * \u0394(Number_of_truck_rest_areas)",
+      "formula": "Δ(Parking_or_docking_area [ha]) = α * Δ(Number_of_truck_rest_areas)",
       "impact": {},
       "explanation": "From spreadsheet (placeholder).",
       "sources": [],
@@ -1264,11 +1266,11 @@
     "transport_by_truck__gdp": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1e-06,
+        "defaultValue": 0.000001,
         "min": 0,
-        "max": 4.9999999999999996e-05,
-        "step": 5e-08,
-        "unit": "\u20ac / jaar, CBS / vkm/jaar"
+        "max": 0.000049999999999999996,
+        "step": 5e-8,
+        "unit": "€ / jaar, CBS / vkm/jaar"
       }
     },
     "transport_by_truck__number_of_vehicles_on_road": {
@@ -1344,9 +1346,9 @@
     "environmental_quality__general_physical_health": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": "WHO/RIVM / DALYs/100k"
       }
@@ -1374,9 +1376,9 @@
     "weather_conditions__road_condition": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": "Grip / friction score / KNMI index"
       }
@@ -1394,11 +1396,11 @@
     "car_safety__accident_severity": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
-        "unit": "AIS / MAIS / 1\u20135 stars"
+        "unit": "AIS / MAIS / 1–5 stars"
       }
     },
     "accident_severity__number_of_fatalities": {
@@ -1444,49 +1446,62 @@
     "greenhouse_gas_emissions__air_quality": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 0.1,
-        "min": 0,
-        "max": 5.0,
-        "step": 0.005,
-        "unit": "\u00b5g/m\u00b3 / well-to-wheel"
+        "defaultValue": 0.6,
+        "min": 0.3,
+        "max": 1,
+        "step": 0.1,
+        "unit": "µg/m³ per Mt CO₂",
+        "description": ""
       }
     },
     "green_grey_ratio__air_quality": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 0.1,
-        "min": 0,
-        "max": 5.0,
-        "step": 0.005,
-        "unit": "\u00b5g/m\u00b3 / NDVI or % green within 300 m buffer"
+        "defaultValue": 0.005,
+        "min": 0.001,
+        "max": 0.01,
+        "step": 0.001,
+        "unit": "µg/m³ / % green within 300 m buffer",
+        "description": ""
       }
     },
     "land_use_for_parking_or_docking_facilities__land_use_infrastructure_per_modality": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
-        "min": 0,
-        "max": 50.0,
-        "step": 0.05,
-        "unit": "m\u00b2 infrastructure per modality / m\u00b2 parking / docking area"
+        "defaultValue": 1,
+        "min": 1,
+        "max": 1.5,
+        "step": 0.1,
+        "unit": "m² infrastructure per modality / m² parking / docking area",
+        "description": "The amount of infrastructure space parking areas take. Default value is 1 but can be higher if concluded that parking takes more infrastructure area than just the parking space"
       }
     },
     "land_use_infrastructure_per_modality__green_grey_ratio": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 0.000002,
         "min": 0,
-        "max": 50.0,
-        "step": 0.05,
-        "unit": "NDVI or % green within 300 m buffer / m\u00b2 infrastructure per modality"
+        "max": 0.000005,
+        "step": 0.000001,
+        "unit": "NDVI or % green within 300 m buffer / m² infrastructure per modality",
+        "description": ""
+      },
+      "alpha": {
+        "label": "alpha",
+        "description": "(added on the fly)",
+        "unit": "",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "defaultValue": 0
       }
     },
     "resting_places__land_use_for_parking_or_docking_facilities": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": ""
       }
@@ -1494,9 +1509,9 @@
     "resting_places__trucker_well_being": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": ""
       }
@@ -1504,9 +1519,9 @@
     "chemical_transport__leveringszekerheid": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": ""
       }
@@ -1516,9 +1531,9 @@
         "label": "Effect size (beta)",
         "defaultValue": 0.1,
         "min": 0,
-        "max": 5.0,
+        "max": 5,
         "step": 0.005,
-        "unit": "DALYs/100k / \u00b5g/m\u00b3"
+        "unit": "DALYs/100k / µg/m³"
       }
     },
     "green_grey_ratio__environmental_quality": {
@@ -1526,7 +1541,7 @@
         "label": "Effect size (beta)",
         "defaultValue": 0.1,
         "min": 0,
-        "max": 5.0,
+        "max": 5,
         "step": 0.005,
         "unit": "DALYs/100k / NDVI or % green within 300 m buffer"
       }
@@ -1534,9 +1549,9 @@
     "perceived_stress__traffic_rule_compliance_rates": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": "% / PSS-10"
       }
@@ -1544,9 +1559,9 @@
     "number_of_vehicles_on_road__road_condition": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": "Grip / friction score / veh/day of vkm/jaar"
       }
@@ -1574,12 +1589,163 @@
     "number_of_vehicles_on_road__leveringszekerheid": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 1.0,
+        "defaultValue": 1,
         "min": 0,
-        "max": 50.0,
+        "max": 50,
         "step": 0.05,
         "unit": ""
       }
-    }
+    },
+    "fragmentation_of_green_space__land_use_infrastructure_per_modality": {
+      "beta": {
+        "label": "beta",
+        "description": "Constant varying between 0.001-0.01 with a base value of 0.005",
+        "unit": "1/ha",
+        "min": 0.002,
+        "max": 0.01,
+        "step": 0.001,
+        "defaultValue": 0.005
+      }
+    },
+    "number_of_vehicles_on_road__greenhouse_gas_emissions": {}
+  },
+  "runtime": {
+    "inputState": {
+      "transport_by_truck": 50000000,
+      "number_of_vehicles_on_road": 0,
+      "gdp": 0,
+      "environmental_quality": 0,
+      "general_physical_health": 0,
+      "mental_wellbeing": 0,
+      "sleep_quality": 0,
+      "noise": 0,
+      "perceived_stress": 0,
+      "fatigue": 0,
+      "weather_conditions": 10,
+      "road_condition": 0,
+      "car_safety": 4,
+      "traffic_rule_compliance_rates": 0,
+      "number_of_accidents": 0,
+      "accident_severity": 0,
+      "number_of_injuries": 0,
+      "number_of_fatalities": 0,
+      "greenhouse_gas_emissions": 0,
+      "land_use_infrastructure_per_modality": 12000000,
+      "fragmentation_of_green_space": 0,
+      "land_use_for_parking_or_docking_facilities": 4000000,
+      "green_grey_ratio": 0,
+      "air_quality": 0,
+      "alternative_transport_modes": 0,
+      "chemical_transport": 0,
+      "personal_and_public_transport": 0,
+      "resting_places": 0,
+      "leveringszekerheid": 0,
+      "trucker_well_being": 0
+    },
+    "edgeParamState": {
+      "transport_by_truck__gdp": {
+        "beta": 0.000001
+      },
+      "transport_by_truck__number_of_vehicles_on_road": {
+        "trucksPerVehicle": 40000
+      },
+      "noise__sleep_quality": {
+        "beta": 0.05
+      },
+      "noise__perceived_stress": {
+        "beta": 0.05
+      },
+      "sleep_quality__mental_wellbeing": {
+        "beta": 0.05
+      },
+      "sleep_quality__fatigue": {
+        "beta": 0.05
+      },
+      "perceived_stress__mental_wellbeing": {
+        "beta": 0.05
+      },
+      "perceived_stress__fatigue": {
+        "beta": 0.05
+      },
+      "environmental_quality__general_physical_health": {
+        "beta": 1
+      },
+      "environmental_quality__mental_wellbeing": {
+        "beta": 0.05
+      },
+      "general_physical_health__mental_wellbeing": {
+        "beta": 0.05
+      },
+      "weather_conditions__road_condition": {
+        "beta": 1
+      },
+      "road_condition__number_of_accidents": {
+        "beta": 0.01
+      },
+      "car_safety__accident_severity": {
+        "beta": 1
+      },
+      "accident_severity__number_of_fatalities": {
+        "beta": 0.01
+      },
+      "number_of_accidents__number_of_injuries": {
+        "beta": 0.01
+      },
+      "number_of_accidents__number_of_fatalities": {
+        "beta": 0.01
+      },
+      "traffic_rule_compliance_rates__number_of_accidents": {
+        "beta": 0.01
+      },
+      "greenhouse_gas_emissions__air_quality": {
+        "beta": 0.6
+      },
+      "green_grey_ratio__air_quality": {
+        "beta": 0.005
+      },
+      "land_use_for_parking_or_docking_facilities__land_use_infrastructure_per_modality": {
+        "beta": 1
+      },
+      "land_use_infrastructure_per_modality__green_grey_ratio": {
+        "beta": 0.000002,
+        "alpha": 0
+      },
+      "resting_places__land_use_for_parking_or_docking_facilities": {
+        "beta": 1
+      },
+      "resting_places__trucker_well_being": {
+        "beta": 1
+      },
+      "chemical_transport__leveringszekerheid": {
+        "beta": 1
+      },
+      "air_quality__environmental_quality": {
+        "beta": 0.1
+      },
+      "green_grey_ratio__environmental_quality": {
+        "beta": 0.1
+      },
+      "perceived_stress__traffic_rule_compliance_rates": {
+        "beta": 1
+      },
+      "number_of_vehicles_on_road__road_condition": {
+        "beta": 1
+      },
+      "weather_conditions__number_of_accidents": {
+        "beta": 0.01
+      },
+      "number_of_vehicles_on_road__number_of_accidents": {
+        "beta": 0.01
+      },
+      "number_of_vehicles_on_road__leveringszekerheid": {
+        "beta": 1
+      },
+      "fragmentation_of_green_space__land_use_infrastructure_per_modality": {
+        "beta": 0.005
+      },
+      "number_of_vehicles_on_road__greenhouse_gas_emissions": {}
+    },
+    "selectedEdgeId": null,
+    "selectedNodeId": null
   }
 }
