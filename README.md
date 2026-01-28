@@ -52,6 +52,9 @@ Dashboard/
 ├─ style_positions_v3_fixed2.css  # Styling
 ├─ d3.v7.min.js                   # D3.js dependency
 ├─ data_with_positions_v3.json    # Data
+```
+
+---
 
 ## Running the model
 
@@ -94,6 +97,8 @@ The model is continuously evaluated when you:
 - update a node baseline
 
 This design supports rapid experimentation and inspection of assumptions.
+
+---
 
 ## Running the dashboard and the model
 
