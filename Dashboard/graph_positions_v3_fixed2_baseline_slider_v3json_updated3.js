@@ -637,7 +637,10 @@ saveDefBtn.on("click", () => {
 
     showNodeEditor(null);
 
-    if (drawerFormulaEditor) drawerFormulaEditor.value = String(edge.formula || edge.displayFormula || "");
+    // Human-readable formula: show the ORIGINAL relationship (from the Excel model) when available.
+    // The dashboard may implement a simplified compute expression (typically Δy = β·Δx), which is
+    // documented in the explanation field.
+    if (drawerFormulaEditor) drawerFormulaEditor.value = String(edge.originalFormula || edge.formula || edge.displayFormula || "");
 
     // Machine readable compute
     const mode = (edge.compute && edge.compute.mode) ? edge.compute.mode : "direct";
@@ -663,7 +666,12 @@ saveDefBtn.on("click", () => {
     });
     
 applyEdgeMetaBtn.on("click", () => {
-  if (drawerFormulaEditor) edge.formula = String(drawerFormulaEditor.value || "").trim();
+  if (drawerFormulaEditor) {
+    const f = String(drawerFormulaEditor.value || "").trim();
+    // Keep both fields in sync: formula is the UI field, originalFormula is what we prefer to display.
+    edge.formula = f;
+    edge.originalFormula = f;
+  }
   if (drawerExplanationEditor) edge.explanation = String(drawerExplanationEditor.value || "").trim();
   if (drawerSourcesEditor){
     const lines = String(drawerSourcesEditor.value || "")
