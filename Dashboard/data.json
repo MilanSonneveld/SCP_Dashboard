@@ -391,9 +391,9 @@
         {
           "name": "beta",
           "label": "Effect size (beta)",
-          "default": -1.58262905793384e-08,
-          "min": -7.9131452896692e-09,
-          "max": -3.16525811586768e-08,
+          "default": -1.58262905793384e-8,
+          "min": -7.9131452896692e-9,
+          "max": -3.16525811586768e-8,
           "unit": "€ billion (NL) per vkm/jaar",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.275. With source scale≈2e+08 vkm/jaar and target scale≈464.39 € billion (NL), set β=0.275·(464.39/2e+08)=6.39e-07 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
           "step": 1.58262905793384e-10
@@ -409,7 +409,7 @@
       "formula": "ΔN = ΔTRUCK_KM / 40.000 OF total cars on road (totaal jaar) = ΔTRUCK_KM / 40.000 + personal cars ",
       "impact": {
         "type": "linear",
-        "k": 2.5e-05
+        "k": 0.000025
       },
       "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: From 'ΔN = ΔTRUCK_KM / 40.000' => β=1/40.0=0.025.\n\nChange in vehicles on road from change in freight vehicle-km, using an average annual vehicle-km per vehicle.",
       "sources": [
@@ -573,7 +573,7 @@
           "max": 0.0041,
           "unit": "KSS per % high sleep disturbance",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.205. With source scale≈100 % high sleep disturbance and target scale≈1 KSS, set β=0.205·(1/100)=0.00205 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-          "step": 2.0500000000000004e-05
+          "step": 0.000020500000000000004
         }
       ],
       "originalFormula": "Fatigue severity = ɑ - 0.16*sleep quality + controls"
@@ -606,7 +606,7 @@
           "label": "Effect size (beta)",
           "default": 19.5,
           "min": 9.75,
-          "max": 39.0,
+          "max": 39,
           "unit": "Index (0–100) per PSS-10",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.7 to set sensitivity factor 0.195. With source scale≈1 PSS-10 and target scale≈100 Index (0–100), set β=0.195·(100/1)=19.5 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
           "step": 0.195
@@ -655,11 +655,11 @@
       "target": "general_physical_health",
       "sign": "+",
       "weight": 0.5,
-      "formula": "DALYPM2.5​≈(1.06210^(C−C0​)​/1.06210^(C−C0​)​−1​)⋅Deathsbaseline​⋅LE",
+      "formula": "Physical Health = α + β₁(Environmental Quality Index) + β₂(Heat Exposure) + β₃(Noise Levels) + ε",
       "impact": {
         "type": "qualitative"
       },
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: Could not derive β automatically from formula.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nPlaceholder: environmental quality affects health via PM2.5 burden.\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.275. With source scale≈100 Index (0–100) and target scale≈1 WHO/RIVM, set β=0.275·(1/100)=0.00275 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
+      "explanation": "This relationship was simplified for the runnable code in the dashboard. In reality, an environmental quality index could consist of many different variables, meaning the relationship depicted here can also exist of many different variables. Some examples of this can be seen in the human readable formula, where heat exposure and noise levels would ideally be taken into account.",
       "sources": [
         "https://www.sciencedirect.com/science/article/pii/S1822801115000077",
         "https://doi.org/10.1016/j.healthplace.2024.103303",
@@ -668,7 +668,7 @@
       "id": "environmental_quality__general_physical_health",
       "compute": {
         "mode": "delta",
-        "expr": "fromDelta * beta",
+        "expr": "from * beta",
         "uses": [
           "beta"
         ]
@@ -682,29 +682,30 @@
           "max": 0.0055000000000000005,
           "unit": "WHO/RIVM per Index (0–100)",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.275. With source scale≈100 Index (0–100) and target scale≈1 WHO/RIVM, set β=0.275·(1/100)=0.00275 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-          "step": 2.7500000000000004e-05
+          "step": 0.000027500000000000004
         }
       ],
-      "originalFormula": "DALYPM2.5​≈(1.06210^(C−C0​)​/1.06210^(C−C0​)​−1​)⋅Deathsbaseline​⋅LE"
+      "originalFormula": "Physical Health = α + β₁(Environmental Quality Index) + β₂(Heat Exposure) + β₃(Noise Levels) + ε"
     },
     {
       "source": "general_physical_health",
       "target": "mental_wellbeing",
       "sign": "+",
       "weight": 0.4,
-      "formula": "Deze is faya",
+      "formula": "MentalWellbeing = α + β₁(GeneralPhysicalHealth)",
       "impact": {
         "type": "linear",
         "k": 0.43
       },
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: Could not derive β automatically from formula.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nLinear approximation using coefficient 0.43 (placeholder units).\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.4 to set sensitivity factor 0.15. With source scale≈1 WHO/RIVM and target scale≈100 Index (0–100), set β=0.15·(100/1)=15 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
+      "explanation": "It is assumed here that mental health is dependent on physical health in some kind of statistical relationship. As physical health is measured as an index, again to fully understand this connection we would need the impact of all the underlying physical health aspects on mental health and find a way to combine these. For the sake of the dashboard, this was simplified.",
       "sources": [
-        "https://www.sciencedirect.com/science/article/pii/S0277953617306639"
+        "https://www.sciencedirect.com/science/article/pii/S0277953617306639",
+        "https://doi.org/10.1016/j.socscimed.2017.11.008"
       ],
       "id": "general_physical_health__mental_wellbeing",
       "compute": {
         "mode": "delta",
-        "expr": "fromDelta * beta",
+        "expr": "from * beta",
         "uses": [
           "beta"
         ]
@@ -713,15 +714,15 @@
         {
           "name": "beta",
           "label": "Effect size (beta)",
-          "default": 15.0,
+          "default": 15,
           "min": 7.5,
-          "max": 30.0,
+          "max": 30,
           "unit": "Index (0–100) per WHO/RIVM",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.4 to set sensitivity factor 0.15. With source scale≈1 WHO/RIVM and target scale≈100 Index (0–100), set β=0.15·(100/1)=15 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
           "step": 0.15
         }
       ],
-      "originalFormula": "Deze is faya"
+      "originalFormula": "MentalWellbeing = α + β₁(GeneralPhysicalHealth)"
     },
     {
       "source": "weather_conditions",
@@ -753,7 +754,7 @@
           "max": 0.0041,
           "unit": "Grip / friction score per KNMI index",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.205. With source scale≈100 KNMI index and target scale≈1 Grip / friction score, set β=0.205·(1/100)=0.00205 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-          "step": 2.0500000000000004e-05
+          "step": 0.000020500000000000004
         }
       ],
       "originalFormula": ""
@@ -941,16 +942,17 @@
       "target": "number_of_accidents",
       "sign": "-",
       "weight": 0.6,
-      "formula": "",
+      "formula": "Accidents = α - β₁(Compliance Rate)",
       "impact": {
         "type": "qualitative"
       },
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: No formula text.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nHigher compliance tends to reduce accidents (placeholder).\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.6 to set sensitivity factor 0.3. With source scale≈100 % and target scale≈1 Traffic accidents per year, set β=0.3·(1/100)=0.003 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
+      "explanation": "Much research has been done on traffic rule violations and accidents, for example phone usage, drug usage or other reckless behavior. Having said that, it's very difficult to pin a concrete number to this connection. Traffic rule compliance is very diverse in nature, with different offences causing completely different outcomes. Some data on the actual numbers for this connection can be found below.",
       "sources": [
         "https://www.researchgate.net/publication/304996080_The_Relationship_Between_Traffic_Rule_Violations_and_Accident_Involvement_Records_of_Drivers",
         "https://swov.nl/nl/fact/riskant-verkeersgedrag-hoeveel-ongevallen-worden-veroorzaakt-door-riskant-verkeersgedrag#:~:text=Door%20het%20niet%20voeren%20van,procent%20van%20de%20overtrederspopulatie%20uitmaakt",
         "https://www.rijkswaterstaat.nl/wegen/wegbeheer/onderzoek/verkeersveiligheid-en-ongevallencijfers/actuele-verkeersongevallencijfers",
-        "https://www.trimbos.nl/kennis/alcohol/alcohol-en-verkeer/cijfers-rijden-onder-invloed-van-alcohol"
+        "https://www.trimbos.nl/kennis/alcohol/alcohol-en-verkeer/cijfers-rijden-onder-invloed-van-alcohol",
+        "https://www.oecd.org/en/publications/road-safety-annual-report-2020_f3e48023-en.html"
       ],
       "id": "traffic_rule_compliance_rates__number_of_accidents",
       "compute": {
@@ -969,10 +971,10 @@
           "max": 0.006,
           "unit": "Traffic accidents per year per %",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.6 to set sensitivity factor 0.3. With source scale≈100 % and target scale≈1 Traffic accidents per year, set β=0.3·(1/100)=0.003 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-          "step": 3e-05
+          "step": 0.00003
         }
       ],
-      "originalFormula": ""
+      "originalFormula": "Accidents = α - β₁(Compliance Rate)"
     },
     {
       "source": "greenhouse_gas_emissions",
@@ -1108,9 +1110,9 @@
         {
           "name": "beta",
           "label": "Effect size (beta)",
-          "default": 1.025e-08,
-          "min": 5.125e-09,
-          "max": 2.05e-08,
+          "default": 0.005,
+          "min": 5.125e-9,
+          "max": 2.05e-8,
           "unit": "Landscape fragmentation index / effective mesh size per m² infrastructure per modality",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.205. With source scale≈2e+07 m² infrastructure per modality and target scale≈1 Landscape fragmentation index / effective mesh size, set β=0.205·(1/2e+07)=1.03e-08 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard."
         }
@@ -1138,7 +1140,7 @@
         {
           "name": "beta",
           "label": "Effect size (beta)",
-          "default": 0.41000000000000003,
+          "default": 1,
           "min": 0.20500000000000002,
           "max": 0.8200000000000001,
           "unit": "m² infrastructure per modality per m² parking / docking area",
@@ -1168,12 +1170,12 @@
         {
           "name": "beta",
           "label": "Effect size (beta)",
-          "default": 6.15e-07,
-          "min": 3.075e-07,
-          "max": 1.23e-06,
+          "default": 6.15e-7,
+          "min": 3.075e-7,
+          "max": 0.00000123,
           "unit": "% green within 300 m buffer per m² infrastructure per modality",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.123. With source scale≈2e+07 m² infrastructure per modality and target scale≈100 % green within 300 m buffer, set β=0.123·(100/2e+07)=6.15e-07 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-          "step": 6.1500000000000005e-09
+          "step": 6.1500000000000005e-9
         }
       ],
       "originalFormula": "ΔGR = (G - ΔP) / (R + ΔP) - (G / R)"
@@ -1183,14 +1185,14 @@
       "target": "environmental_quality",
       "sign": "+",
       "weight": 0.5,
-      "formula": "",
+      "formula": "EnvironmentalQuality = α⋅ln(Green Gray ratio)",
       "impact": {},
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: No formula text.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nFrom spreadsheet (placeholder).\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.123. With source scale≈100 % green within 300 m buffer and target scale≈100 Index (0–100), set β=0.123·(100/100)=0.123 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
+      "explanation": "When there is more green than grey, the environmental quality is usually better—air and water are cleaner, temperatures are more balanced, and people generally feel healthier and more relaxed. On the other hand, cities with too much grey space tend to suffer from poor air quality, heat stress, and environmental degradation. \n\nHowever, it’s hard to measure this link precisely because: Green and grey areas can be mixed or hard to classify (e.g., a tree-lined street). The quality of green space matters too (a well-maintained park vs. a patch of weeds). The impact varies by scale (what’s true for a neighborhood might not apply citywide).\n\nWhen green space increases relative to grey, the initial improvements in environmental quality are large, but over time, each additional unit of green space has a smaller marginal effect. This is a classic diminishing returns scenario, and a logarithmic curve captures that pattern, hence the ln function given here as example.",
       "sources": [],
       "id": "green_grey_ratio__environmental_quality",
       "compute": {
         "mode": "delta",
-        "expr": "fromDelta * beta",
+        "expr": "ln(fromDelta) * beta",
         "uses": [
           "beta"
         ]
@@ -1207,7 +1209,7 @@
           "step": 0.00123
         }
       ],
-      "originalFormula": ""
+      "originalFormula": "EnvironmentalQuality = α⋅ln(Green Gray ratio)"
     },
     {
       "source": "resting_places",
@@ -1262,9 +1264,9 @@
       "target": "trucker_well_being",
       "sign": "+",
       "weight": 0.5,
-      "formula": "Volgens bronnen is deze link totaal niet sterk, dus weet niet of we dit moeten kwantificeren. Resting places is ook een vrij vage variabele",
+      "formula": "Wellbeing = α + β₁(Rest Area Quality) + β₂(Sleep Duration) + β₃(Stress Index) + ε",
       "impact": {},
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: Could not derive β automatically from formula.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nFrom spreadsheet (placeholder).\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.205. With source scale≈1  and target scale≈1 , set β=0.205·(1/1)=0.205 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
+      "explanation": "According to sources, this is not a strong relationship. Improving rest place infrastructure alone does not solve poor sleep or wellbeing. This again is also a question of the broad nature of the variable trucker well-being. Well being is not only defined by sleep, but by many more variables. If this does need to be given a formula, it would be in the human readable form above. All factors seen there are at play when a trucker is resting somewhere. One might ask why the connection was not removed if the connection is not really strong. It was chosen to keep this connection as trucker well being was deemed very important by one interviewee.",
       "sources": [
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC9153978/"
       ],
@@ -1288,21 +1290,23 @@
           "step": 0.00205
         }
       ],
-      "originalFormula": "Volgens bronnen is deze link totaal niet sterk, dus weet niet of we dit moeten kwantificeren. Resting places is ook een vrij vage variabele"
+      "originalFormula": "Wellbeing = α + β₁(Rest Area Quality) + β₂(Sleep Duration) + β₃(Stress Index) + ε"
     },
     {
       "source": "chemical_transport",
       "target": "leveringszekerheid",
       "sign": "+",
       "weight": 0.5,
-      "formula": "Deze snap ik niet? Hoe heeft chemical transport invloed op leveringszekerheid? Het maakt toch niet uit wat je transporteert",
+      "formula": "Leveringszekerheid=100− alpha × Chemical transport",
       "impact": {},
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: Could not derive β automatically from formula.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nFrom spreadsheet (placeholder).\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.205. With source scale≈1  and target scale≈1 , set β=0.205·(1/1)=0.205 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-      "sources": [],
+      "explanation": "This relationship was added because one interviewee deemed it very important to add leveringszekerheid to the model, and was explaining how chemical transport may cause trucks to take completely different routes than normally. This takes more time, thus hindering timely deliverance. After this was added to the model, we realized that this relationship is extremely difficuly to quantify. An abundance of research and articles can be found on the safe transportation of chemicals, however these texts often don't mention any kind of indication on how much longer chemical transport takes as compared to 'regular' transport. While a formula can not be given, some background information of civilians' perceptions on chemicals can be found in the sources.\n\nThe human formula seen here is purely hypothetical.",
+      "sources": [
+        "https://doi.org/10.1111/risa.13375"
+      ],
       "id": "chemical_transport__leveringszekerheid",
       "compute": {
         "mode": "delta",
-        "expr": "fromDelta * beta",
+        "expr": "100 - fromDelta * alpha",
         "uses": [
           "beta"
         ]
@@ -1319,7 +1323,7 @@
           "step": 0.00205
         }
       ],
-      "originalFormula": "Deze snap ik niet? Hoe heeft chemical transport invloed op leveringszekerheid? Het maakt toch niet uit wat je transporteert"
+      "originalFormula": "Leveringszekerheid=100− alpha × Chemical transport"
     },
     {
       "source": "alternative_transport_modes",
@@ -1343,10 +1347,13 @@
       "target": "environmental_quality",
       "sign": "+",
       "weight": 0.5,
-      "formula": "",
+      "formula": "EnvironmentalQuality = α + β₁(PM2.5) + β₂(NO₂) + β₃(O₃) + ε",
       "impact": {},
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: No formula text.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nFrom spreadsheet (placeholder).\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.123. With source scale≈10 PM2.5 (µg/m³) and target scale≈100 Index (0–100), set β=0.123·(100/10)=1.23 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-      "sources": [],
+      "explanation": "Air quality can be made as broad as one would like. It could be either an index or a specific attribute, such as PM2.5 or NO2. One could change the formula accordingly. For the example formula, air quality is seen as an index. The coumpound of these substances is assumed to have a direct impact on environmental quality. The formula here is again merely an example and should be adjusted according to the choice made for the unit of air quality.",
+      "sources": [
+        "https://www.who.int/publications/i/item/9789240034228",
+        "https://www.sciencedirect.com/science/article/pii/S266655812600014X"
+      ],
       "id": "air_quality__environmental_quality",
       "compute": {
         "mode": "delta",
@@ -1367,24 +1374,26 @@
           "step": 0.0123
         }
       ],
-      "originalFormula": ""
+      "originalFormula": "EnvironmentalQuality = α + β₁(PM2.5) + β₂(NO₂) + β₃(O₃) + ε"
     },
     {
       "source": "environmental_quality",
       "target": "mental_wellbeing",
       "sign": "+",
       "weight": 0.5,
-      "formula": "Kan je beter opsplitsen denk ik in geluidsoverlast, green/ gray, fijnstof etc. Niet echt 1 formule voor te geven",
+      "formula": "MentalWellbeing = α + β₁(EnvironmentalQuality)",
       "impact": {},
-      "explanation": "Dashboard simplification: the original Excel relationship is implemented as a *local linear approximation* to keep the dashboard fast and stable.\nImplementation used in the dashboard: Δ(target) ≈ β · Δ(source) (first‑order linearisation around the baseline).\nβ derivation: Could not derive β automatically from formula.\nNote: β could not be derived automatically from the formula string; the current β is kept as a placeholder and should be validated against the full Excel model.\n\nFrom spreadsheet (placeholder).\n\nGrounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.165. With source scale≈100 Index (0–100) and target scale≈100 Index (0–100), set β=0.165·(100/100)=0.165 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
+      "explanation": "The effect here is very simplified. A direct impact of environmental quality on mental health is difficult to give. However, its impact can be estimated as a beta coefficient multiplied by the environmental quality index. It must be noted that this is overly simplified, this is a very hard relationship to quantify this easily. Sources can be found for parts of the environmental quality index and the impact of that part on mental health.",
       "sources": [
         "https://www.sciencedirect.com/science/article/pii/S0197397514000964?casa_token=ayf1H4iPixsAAAAA:EMXeD-S7mz792oodGmawm45DcLxr0YutptmOKsYsez8IgszWO8AlUcTu3H7gmjrlu_MjvOzqWQ",
+        "https://doi.org/10.1016/j.healthplace.2019.102153",
+        "https://doi.org/10.1016/j.jenvman.2026.128677",
         "https://doi.org/10.1016/j.healthplace.2019.102153"
       ],
       "id": "environmental_quality__mental_wellbeing",
       "compute": {
         "mode": "delta",
-        "expr": "fromDelta * beta",
+        "expr": "from * beta",
         "uses": [
           "beta"
         ]
@@ -1401,7 +1410,7 @@
           "step": 0.0016500000000000002
         }
       ],
-      "originalFormula": "Kan je beter opsplitsen denk ik in geluidsoverlast, green/ gray, fijnstof etc. Niet echt 1 formule voor te geven"
+      "originalFormula": "MentalWellbeing = α + β₁(EnvironmentalQuality)"
     },
     {
       "source": "weather_conditions",
@@ -1446,7 +1455,7 @@
           "max": 0.0055000000000000005,
           "unit": "Traffic accidents per year per KNMI index",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.275. With source scale≈100 KNMI index and target scale≈1 Traffic accidents per year, set β=0.275·(1/100)=0.00275 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-          "step": 2.7500000000000004e-05
+          "step": 0.000027500000000000004
         }
       ],
       "originalFormula": ""
@@ -1644,7 +1653,7 @@
           "max": 0.007454545454545455,
           "unit": "PSS-10 per Noise level (dB Lden)",
           "description": "Grounded scaling assumption (NL defaults): treat this edge as a local linear sensitivity around baseline. Use link weight 0.5 to set sensitivity factor 0.205. With source scale≈55 Noise level (dB Lden) and target scale≈1 PSS-10, set β=0.205·(1/55)=0.00373 so typical source changes produce moderate (order-of-magnitude) target changes without destabilising the dashboard.",
-          "step": 3.7272727272727276e-05
+          "step": 0.000037272727272727276
         }
       ],
       "originalFormula": "Lijkt erop dat er geen significante aanwijzing voor is"
@@ -1705,9 +1714,9 @@
     "transport_by_truck__gdp": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": -1.58262905793384e-08,
-        "min": -7.9131452896692e-09,
-        "max": -3.16525811586768e-08,
+        "defaultValue": -1.58262905793384e-8,
+        "min": -7.9131452896692e-9,
+        "max": -3.16525811586768e-8,
         "step": 1.58262905793384e-10,
         "unit": "€ billion (NL) per vkm/jaar",
         "description": "Coeff for KM_MLN_Truck is (-0.39354*40.21520196)=-15.826290579338401 (million € per million km). Convert: ΔGDP_billion = coeff*ΔTruckKM / 1e9 => β=-1.58262905793384e-08."
@@ -1749,7 +1758,7 @@
         "defaultValue": 0.0037272727272727275,
         "min": 0.0018636363636363638,
         "max": 0.007454545454545455,
-        "step": 3.7272727272727276e-05,
+        "step": 0.000037272727272727276,
         "unit": "PSS-10 per Noise level (dB Lden)",
         "description": "Could not derive β automatically from formula."
       }
@@ -1771,7 +1780,7 @@
         "defaultValue": 0.00205,
         "min": 0.001025,
         "max": 0.0041,
-        "step": 2.0500000000000004e-05,
+        "step": 0.000020500000000000004,
         "unit": "KSS per % high sleep disturbance",
         "description": "Could not derive β automatically from formula."
       }
@@ -1781,7 +1790,7 @@
         "label": "Effect size (beta)",
         "defaultValue": 19.5,
         "min": 9.75,
-        "max": 39.0,
+        "max": 39,
         "step": 0.195,
         "unit": "Index (0–100) per PSS-10",
         "description": "Could not derive β automatically from formula."
@@ -1804,7 +1813,7 @@
         "defaultValue": 0.0027500000000000003,
         "min": 0.0013750000000000001,
         "max": 0.0055000000000000005,
-        "step": 2.7500000000000004e-05,
+        "step": 0.000027500000000000004,
         "unit": "WHO/RIVM per Index (0–100)",
         "description": "Could not derive β automatically from formula."
       }
@@ -1823,9 +1832,9 @@
     "general_physical_health__mental_wellbeing": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 15.0,
+        "defaultValue": 15,
         "min": 7.5,
-        "max": 30.0,
+        "max": 30,
         "step": 0.15,
         "unit": "Index (0–100) per WHO/RIVM",
         "description": "Could not derive β automatically from formula."
@@ -1837,7 +1846,7 @@
         "defaultValue": 0.00205,
         "min": 0.001025,
         "max": 0.0041,
-        "step": 2.0500000000000004e-05,
+        "step": 0.000020500000000000004,
         "unit": "Grip / friction score per KNMI index",
         "description": "No formula text."
       }
@@ -1903,7 +1912,7 @@
         "defaultValue": 0.003,
         "min": 0.0015,
         "max": 0.006,
-        "step": 3e-05,
+        "step": 0.00003,
         "unit": "Traffic accidents per year per %",
         "description": "No formula text."
       }
@@ -1944,10 +1953,10 @@
     "land_use_infrastructure_per_modality__green_grey_ratio": {
       "beta": {
         "label": "Effect size (beta)",
-        "defaultValue": 6.15e-07,
-        "min": 3.075e-07,
-        "max": 1.23e-06,
-        "step": 6.1500000000000005e-09,
+        "defaultValue": 6.15e-7,
+        "min": 3.075e-7,
+        "max": 0.00000123,
+        "step": 6.1500000000000005e-9,
         "unit": "% green within 300 m buffer per m² infrastructure per modality",
         "description": "Could not derive β automatically from formula."
       },
@@ -2044,7 +2053,7 @@
         "defaultValue": 0.0027500000000000003,
         "min": 0.0013750000000000001,
         "max": 0.0055000000000000005,
-        "step": 2.7500000000000004e-05,
+        "step": 0.000027500000000000004,
         "unit": "Traffic accidents per year per KNMI index",
         "description": "No formula text."
       }
@@ -2096,7 +2105,7 @@
       "noise": 0,
       "perceived_stress": 0,
       "fatigue": 0,
-      "weather_conditions": 10,
+      "weather_conditions": 15,
       "road_condition": 0,
       "car_safety": 4,
       "traffic_rule_compliance_rates": 0,
@@ -2119,108 +2128,109 @@
     },
     "edgeParamState": {
       "transport_by_truck__gdp": {
-        "beta": 1e-06
+        "beta": -1.58262905793384e-8
       },
       "transport_by_truck__number_of_vehicles_on_road": {
-        "trucksPerVehicle": 40000
+        "trucksPerVehicle": 40000,
+        "beta": 0.025
       },
       "noise__sleep_quality": {
-        "beta": 0.05
+        "beta": 0.5846
       },
       "noise__perceived_stress": {
-        "beta": 0.05
+        "beta": 0.0037272727272727275
       },
       "sleep_quality__mental_wellbeing": {
-        "beta": 0.05
+        "beta": 0.3
       },
       "sleep_quality__fatigue": {
-        "beta": 0.05
+        "beta": 0.00205
       },
       "perceived_stress__mental_wellbeing": {
-        "beta": 0.05
+        "beta": 19.5
       },
       "perceived_stress__fatigue": {
-        "beta": 0.05
+        "beta": 0.20500000000000002
       },
       "environmental_quality__general_physical_health": {
-        "beta": 1
+        "beta": 0.0027500000000000003
       },
       "environmental_quality__mental_wellbeing": {
-        "beta": 0.05
+        "beta": 0.165
       },
       "general_physical_health__mental_wellbeing": {
-        "beta": 0.05
+        "beta": 15
       },
       "weather_conditions__road_condition": {
-        "beta": 1
+        "beta": 0.00205
       },
       "road_condition__number_of_accidents": {
-        "beta": 0.01
+        "beta": 0.325
       },
       "car_safety__accident_severity": {
-        "beta": 1
+        "beta": 0.057499999999999996
       },
       "accident_severity__number_of_fatalities": {
-        "beta": 0.01
+        "beta": 0.325
       },
       "number_of_accidents__number_of_injuries": {
-        "beta": 0.01
+        "beta": 0.3
       },
       "number_of_accidents__number_of_fatalities": {
-        "beta": 0.01
+        "beta": 0.3
       },
       "traffic_rule_compliance_rates__number_of_accidents": {
-        "beta": 0.01
+        "beta": 0.003
       },
       "greenhouse_gas_emissions__air_quality": {
-        "beta": 0.6
+        "beta": 0.01
       },
       "green_grey_ratio__air_quality": {
-        "beta": 0.005
+        "beta": 0.05
       },
       "land_use_for_parking_or_docking_facilities__land_use_infrastructure_per_modality": {
         "beta": 1
       },
       "land_use_infrastructure_per_modality__green_grey_ratio": {
-        "beta": 2e-06,
+        "beta": 6.15e-7,
         "alpha": 0
       },
       "resting_places__land_use_for_parking_or_docking_facilities": {
-        "beta": 1
+        "beta": 2050000.0000000002
       },
       "resting_places__trucker_well_being": {
-        "beta": 1
+        "beta": 0.20500000000000002
       },
       "chemical_transport__leveringszekerheid": {
-        "beta": 1
+        "beta": 0.20500000000000002
       },
       "air_quality__environmental_quality": {
-        "beta": 0.1
+        "beta": 1.23
       },
       "green_grey_ratio__environmental_quality": {
-        "beta": 0.1
+        "beta": 0.123
       },
       "perceived_stress__traffic_rule_compliance_rates": {
-        "beta": 1
+        "beta": 12.3
       },
       "number_of_vehicles_on_road__road_condition": {
-        "beta": 1
+        "beta": 0.20500000000000002
       },
       "weather_conditions__number_of_accidents": {
-        "beta": 0.01
+        "beta": 0.0027500000000000003
       },
       "number_of_vehicles_on_road__number_of_accidents": {
-        "beta": 0.01
+        "beta": 0.3
       },
       "number_of_vehicles_on_road__leveringszekerheid": {
-        "beta": 1
+        "beta": 0.20500000000000002
       },
       "fragmentation_of_green_space__land_use_infrastructure_per_modality": {
         "beta": 0.005
       },
       "number_of_vehicles_on_road__greenhouse_gas_emissions": {}
     },
-    "selectedEdgeId": null,
+    "selectedEdgeId": "green_grey_ratio__environmental_quality",
     "selectedNodeId": null
   }
 }
