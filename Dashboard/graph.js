@@ -1015,7 +1015,7 @@ renderEdgeVars(edge);
   // --- Init ---------------------------------------------------------------
   async function init() {
     // Fetch data.json (same folder as index.html)
-    const res = await fetch("./data_with_positions_v3.json", { cache: "no-store" });
+    const res = await fetch("./data.json", { cache: "no-store" });
     data = await res.json();
 
     
